@@ -6,6 +6,16 @@ h1{
   color: white;
 }
 
+.amountLabel{
+  position: absolute;
+  left: 2px;
+  top: 40px;
+  width: 46px;
+  height: 8px;
+
+  
+}
+
 #slot{
   background-color: lightgray;
   position:fixed;
