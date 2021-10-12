@@ -1,3 +1,8 @@
+@font-face {
+  font-family: minecraft;
+  src: url(/Assets/Fonts/MinecraftRegular-Bmg3.otf);
+}
+
 body{
   background-color: black;
 }
@@ -13,7 +18,8 @@ h1{
   width: 46px;
   height: 8px;
 
-  
+  font-family: minecraft;
+  font-size: 12px;
 }
 
 #slot{
