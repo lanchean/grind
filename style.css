@@ -18,8 +18,11 @@ h1{
   width: 46px;
   height: 8px;
 
+  color: white;
   font-family: minecraft;
   font-size: 12px;
+
+  z-index: 10;
 }
 
 #slot{
