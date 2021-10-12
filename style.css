@@ -5,3 +5,10 @@ body{
 h1{
   color: white;
 }
+
+#slot{
+  background-color: lightgray;
+  position:fixed;
+  width: 50px;
+  height: 50px;
+}
