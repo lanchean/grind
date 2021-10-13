@@ -29,6 +29,12 @@ h1{
   z-index: 10;
 }
 
+.slotImage{
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
 #slot{
   background-color: lightgray;
 
