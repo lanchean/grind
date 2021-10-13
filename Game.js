@@ -1,7 +1,7 @@
 var Resources = {
     "Wood": {
-        Amount = 0,
-        Recipe = {}
+        Amount: 0,
+        Recipe: {}
     }
 };
 

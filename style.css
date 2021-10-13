@@ -1,6 +1,8 @@
 @font-face {
   font-family: minecraft;
-  src: url(/Assets/Fonts/MinecraftRegular-Bmg3.otf);
+  font-weight: normal;
+  font-style: normal;
+  src: url(Assets/Fonts/MinecraftRegular-Bmg3.otf) format('opentype');
 }
 
 body{
