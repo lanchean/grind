@@ -17,14 +17,15 @@ h1{
 
 .amountLabel{
   position: absolute;
-  left: 37px;
-  top: 27px;
+  left: 0px;
+  top: 26px;
   width: 46px;
   height: 8px;
 
   color: white;
   font-family: minecraft;
   font-size: 12px;
+  text-align: right;
 
   z-index: 10;
 }
@@ -38,7 +39,7 @@ h1{
   margin: 0px;
   border: 0px;
 
-  background-color: darkgray;
+  background-color: dimgray;
 }
 
 #slot{
