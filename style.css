@@ -16,7 +16,7 @@ h1{
 }
 
 .amountLabel{
-  position: relative;
+  position: absolute;
   left: 2px;
   top: 40px;
   width: 46px;
