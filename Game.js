@@ -10,5 +10,7 @@ function Craft(ResourceName){
 
     if(Resource.Recipe){
         //TODO: Check if player can afford, else, draw it.
+    }else{
+        
     }
 }
