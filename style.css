@@ -18,13 +18,13 @@ h1{
 .amountLabel{
   position: absolute;
   left: 0px;
-  top: 26px;
+  top: 30px;
   width: 46px;
   height: 8px;
 
   color: white;
   font-family: minecraft;
-  font-size: 28px;
+  font-size: 22px;
   text-align: right;
 
   z-index: 10;
