@@ -42,7 +42,7 @@ h1{
   background-color: dimgray;
 }
 
-#slot{
+.slot{
   background-color: lightgray;
 
   padding: 0px;
@@ -52,4 +52,11 @@ h1{
   position:absolute;
   width: 100px;
   height: 100px;
+}
+
+.repice{
+  background-color: darkgray;
+
+  width: 250px;
+  height: auto;
 }
