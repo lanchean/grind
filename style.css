@@ -42,10 +42,8 @@ h1{
   background-color: dimgray;
 }
 
-.slot{
-  background-color: lightgray;
-
-  padding: 30px;
+.slot{ 
+  padding: 10px;
   margin: 0px;
   border: 0px;
 
