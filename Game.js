@@ -9,8 +9,10 @@ function Craft(ResourceName){
     var Resource = Resources[ResourceName];
 
     if(Resource.Recipe){
-        //TODO: Check if player can afford, else, draw it.
-    }else{
-        
+        var canAfford = true;
+
+        for(var i = 0; i < Resource.Recipe.length / 2; i++){
+            var 
+        }
     }
 }
