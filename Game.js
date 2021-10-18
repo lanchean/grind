@@ -37,6 +37,7 @@ function Craft(ResourceName){
 //Handles what the game should do when the web page loads
 function Init(){
     window.onerror = function(error){
+        $('#1').text("Error!");
         $('#errorlog').html('Error: ' + error);
     }
 
@@ -46,4 +47,4 @@ function Init(){
 
 Init();
 
-foo();
+var asdjafoasdjf = ;
