@@ -42,7 +42,7 @@ function Init(){
     }
 
     //TODO: Gen all slots
-    var aafafasdfasdfasdf = ;
+    alert("We made it through init!");
 }
 
 Init();
