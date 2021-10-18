@@ -42,9 +42,8 @@ function Init(){
     }
 
     //TODO: Gen all slots
-
+    var aafafasdfasdfasdf = "a";
+    aafafasdfasdfasdf += 38;
 }
 
 Init();
-
-var asdjafoasdjf = ;
