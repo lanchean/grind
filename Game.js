@@ -36,13 +36,7 @@ function Craft(ResourceName){
 
 //Handles what the game should do when the web page loads
 function Init(){
-    window.onerror = function(error){
-        $('#1').text("Error!");
-        $('#errorlog').html('Error: ' + error);
-    }
-
-    //TODO: Gen all slots
-    alert("We made it through init!");
+    alert("Hello? Uh... hello?");
 }
 
-Init(); 
+Init();
