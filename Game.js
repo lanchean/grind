@@ -1,7 +1,7 @@
 var Resources = {
     "Wood": {
         Amount: 0,
-        CraftingAmount = 1,
+        CraftingAmount: 1,
         Recipe: {}
     }
 };
@@ -36,7 +36,5 @@ function Craft(ResourceName){
 
 //Handles what the game should do when the web page loads
 function Init(){
-    alert("Hello? Uh... hello?");
+    
 }
-
-Init();
