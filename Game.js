@@ -30,6 +30,8 @@ function Craft(ResourceName){
             }
 
             Resources[ResourceName].Amount += Resource.CraftingAmount
+        }else{
+            //TODO: Draw recipe
         }
     }
 }
