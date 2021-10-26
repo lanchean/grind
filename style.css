@@ -17,9 +17,9 @@ h1{
 
 .amountLabel{
   position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 46px;
+  right: 10px;
+  bottom: 23px;
+  width: auto;
   height: 8px;
   padding: 0px;
   margin: 0px;
@@ -28,7 +28,7 @@ h1{
   color: white;
   font-family: minecraft;
   font-size: 22px;
-  text-align: left;
+  text-align: right;
 
   z-index: 10;
 }
@@ -54,7 +54,7 @@ h1{
   width: 100px;
   height: 100px;
 
-  overflow: scroll;
+  text-align: right;
 }
 
 .repice{
