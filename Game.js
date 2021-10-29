@@ -52,7 +52,7 @@ function Init(){
     function Draw(){
         //Loop through each resource, and draw a slot for it
         var newSlot = $(".slot").html();
-        newSlot.attr("id", "hello")
+        newSlot.id = "hello";
 
         $("#resources").append($("#hello"));
     }
