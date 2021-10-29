@@ -1,8 +1,13 @@
 var Resources = {
-    "Wood": {
+    "OakWood": {
         Amount: 0,
         CraftingAmount: 1,
-        Recipe: {}
+        Recipe: []
+    },
+    "OakPlanks": {
+        Amount: 0,
+        CraftingAmount: 4,
+        Recipe: ["OakWood", 4]
     }
 };
 
@@ -32,11 +37,25 @@ function Craft(ResourceName){
             Resources[ResourceName].Amount += Resource.CraftingAmount
         }else{
             //TODO: Draw recipe
+            //Append all the necessary slots
+            for(var i = 1; i < Resource.Recipe.length / 2; i++){
+                var selectedResource = Resource.Recipe[i * 2];
+                var selectedAmount = Resource.Recipe[i * 2 + 1];
+                
+            }
         }
     }
 }
 
 //Handles what the game should do when the web page loads
 function Init(){
-    
+    function Draw(){
+        //Loop through each resource, and draw a slot for it
+        var newSlot = $(".slot").html();
+        newSlot.attr("id", "hello")
+
+        $("#resources").append($("#hello"));
+    }
+
+    Draw();
 }
