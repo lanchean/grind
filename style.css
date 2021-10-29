@@ -64,6 +64,6 @@ h1{
   background-color: lightslategray
 }
 
-#errorlog{
-  color: white;
+#placeholder{
+  visibility: hidden;
 }
