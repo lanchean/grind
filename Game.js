@@ -54,7 +54,7 @@ function Init(){
         var newSlot = $(".slot").html();
         newSlot.id = "hello";
 
-        $("#resources").append($("#hello"));
+        $("#resources").append(newSlot);
     }
 
     Draw();
