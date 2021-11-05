@@ -11,6 +11,52 @@ var Resources = {
     }
 };
 
+//Math + helper functions
+function EditTagInInnerHtml(innerHtml, tag, attr, newValue){
+    var currentTag = false;
+    var currentAttribute = false;
+    var insideQuotes = false;
+
+    for(var i = 0; i < innerHtml.length; i++){
+        var currentChar = innerHtml.charAt(i);
+
+        if(currentChar = '"' || currentChar){
+            insideQuotes = !insideQuotes;
+        }
+
+        if(currentChar = '>'){
+            //Reset, tag has been closed
+            currentTag = false;
+            currentAttribute = false;
+        }
+        
+        if(currentChar = '<' && !currentTag){
+            //Tag has been started
+            currentTag = currentChar;
+        }
+
+        if((currentAttribute == attr) && currentChar == '='){
+            //Found the attribute, begin on it's replacement value
+            //Get where the value starts, and where the value ends
+        }
+
+        //We need to find the tag, process this character
+        if(currentTag && !currentAttribute){
+            if(!insideQuotes && currentChar == ' ' && currentTag == tag){
+                //Start on finding the attributes
+                currentAttribute = true;
+            }else{
+                currentTag = currentTag + currentChar;
+            }
+        }
+
+        //Let's try and find the attribute
+        if(currentAttribute && !currentChar == ' '){
+            currentAttribute = currentAttribute + currentChar
+        }
+    }
+}
+
 function Craft(ResourceName){
     var Resource = Resources[ResourceName];
 
@@ -42,6 +88,11 @@ function Craft(ResourceName){
                 var selectedResource = Resource.Recipe[i * 2];
                 var selectedAmount = Resource.Recipe[i * 2 + 1];
                 
+                var image = selectedResource.toLowerCase() = ".png";
+
+                //Add the slot
+                var newSlot = $('#placeholder').html();
+                newSlot
             }
         }
     }
