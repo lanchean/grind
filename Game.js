@@ -11,6 +11,9 @@ var Resources = {
     }
 };
 
+//Saved html
+var slotImage = "<img class = 'newSlotImage' src = 'Assets/Images/icon.png' alt = 'Slot Image'>";
+
 function Craft(ResourceName){
     var Resource = Resources[ResourceName];
 
@@ -56,7 +59,14 @@ function Init(){
     function Draw(){
         //Loop through each resource, and draw a slot for it
         for(var i = 1; i < Resources.length; i++){
-            var newImage = $('#slotImageHtml').html()
+            var keys = Object.keys(Resources);
+
+            $('#resources').append('')
+
+            $('#resources').append(slotImage);
+            $('.newSlotImage').attr('id', keys[i].toLowerCase() + "image");
+            $('.newSlotImage').attr('src', 'Assets/Images/items/' = keys[i].toLowerCase() + '.png');
+            $('.newSlotImage').attr('class', 'slotImage')
         }
     }
 
