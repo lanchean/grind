@@ -59,6 +59,7 @@ function Init(){
     function Draw(){
         //Loop through each resource, and draw a slot for it
         for(var i = 1; i < Resources.length; i++){
+            console.log('Drawing resource...');
             var keys = Object.keys(Resources);
             var name = keys[i].toLowerCase();
 
