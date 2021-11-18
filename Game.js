@@ -12,7 +12,7 @@ var Resources = {
 };
 
 //Saved html
-var slotImage = "<img class = 'newSlotImage' src = 'Assets/Images/icon.png' alt = 'Slot Image'>";
+var slotDiv = "<div id = 'placeholder' class = 'newSlot'><img class = 'newSlotImage' src = 'Assets/Images/icon.png' alt = 'Slot Image'><p id = '1' class = 'newAmountLabel'>99999</p></div>"
 
 function Craft(ResourceName){
     var Resource = Resources[ResourceName];
@@ -47,7 +47,7 @@ function Craft(ResourceName){
                 
                 var image = selectedResource.toLowerCase() = ".png";
 
-                //Add the slot
+                //TODO: Add the slot
                 var newSlot = $('#placeholder').html();
             }
         }
@@ -60,13 +60,18 @@ function Init(){
         //Loop through each resource, and draw a slot for it
         for(var i = 1; i < Resources.length; i++){
             var keys = Object.keys(Resources);
+            var name = keys[i].toLowerCase();
 
-            $('#resources').append('')
+            $('#resources').append(slotDiv);
 
-            $('#resources').append(slotImage);
-            $('.newSlotImage').attr('id', keys[i].toLowerCase() + "image");
-            $('.newSlotImage').attr('src', 'Assets/Images/items/' = keys[i].toLowerCase() + '.png');
+            $('.newSlot').attr('id', name + 'slot');
+            $('.newSlot').attr('class', 'slot');
+            $('.newSlotImage').attr('id', name + 'image');
+            $('.newSlotImage').attr('src', 'Assets/Images/' + name + '.png');
             $('.newSlotImage').attr('class', 'slotImage')
+            $('.newAmountLabel').attr('id', name + 'label');
+            $('.newAmountLabel').html(Resources[i].Amount);
+            $('.newAmountLabel').attr('class', 'amountLabel');
         }
     }
 
