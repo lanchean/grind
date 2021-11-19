@@ -56,6 +56,8 @@ function Craft(ResourceName){
 
 //Handles what the game should do when the web page loads
 function Init(){
+    $('#news').html('o');
+
     function Draw(){
         //Loop through each resource, and draw a slot for it
         for(var i = 1; i < Resources.length; i++){
