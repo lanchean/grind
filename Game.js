@@ -73,6 +73,22 @@ var Generators = {
 var slotDiv = "<div id = 'placeholder' class = 'newSlot'><img class = 'newSlotImage' src = 'Assets/Images/icon.png' alt = 'Slot Image' width = '100' height = '100'><p id = '1' class = 'newAmountLabel'>99999</p></div>"
 var generatorDiv = "<div class = 'newGenerator'><h3 class = 'newGeneratorText'></h3><img class = 'newGeneratorImage' alt = 'Resource Gen'></div>"
 
+function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
+    $('#' + parentId).append(slotDiv);
+
+    $('.newSlotImage').attr('src', 'Assets/Images/items/' + resourceName.toLowerCase);
+    $('.newSlotImage').attr('class', 'slotImage');
+
+    if(slotText){
+        $('.newAmountLabel').text(slotText);
+    }
+
+    $('.newAmountLabel').attr('class', 'amountLabel');
+    $('.newSlot').attr('id', slotId);
+    $('.newSlot').click({param1: resourceName}, onClickMethod);
+    $('.newSlot').attr('class', 'slot');
+}
+
 function Give(ResourceName, amount){
     Resources[ResourceName].Amount += amount
     $('#' + ResourceName + 'label').html(Resources[ResourceName].Amount);
@@ -91,12 +107,10 @@ function Craft(ResourceName){
             
             if(selectedAmount === 0 && Resources[selectedResource].Amount < 1){
                 canAfford = false;
-                break;
             }
 
             if(Resources[selectedResource].Amount < selectedAmount){
                 canAfford = false;
-                break;
             }
         }
 
@@ -107,6 +121,15 @@ function Craft(ResourceName){
             }
 
             Give(ResourceName, Resource.CraftingAmount)
+
+            //Add a tool if we need to
+            if(Resource.Type == Enum.ToolType.Tool){
+                Tools[Tools.length] = {
+                    Type: ResourceName,
+                    Durability: Resource.Durability,
+                    MaxDurability: Resource.Durabilty
+                }
+            }
         }else{
             //TODO: Draw recipe
             //Append all the necessary slots
@@ -178,19 +201,7 @@ function Init(){
         $('h1').text('Event binded!');
         //Loop through each resource, and draw a slot for it
         for(var name in Resources){
-            $('#resources').append(slotDiv);
-            
-            $('.newSlot').attr('id', name + 'slot');
-            $('.newSlot').click({param1: name}, craftItemBind);
-            $('.newSlot').attr('class', 'slot');
-            $('.newSlotImage').attr('id', name + 'image');
-            $('.newSlotImage').attr('src', 'Assets/Images/items/' + name.toLowerCase() + '.png');
-            $('.newSlotImage').attr('alt', name);
-            $('.newSlotImage').attr('class', 'slotImage')
-            $('.newAmountLabel').attr('id', name + 'label');
-            $('.newAmountLabel').html(Resources[name].Amount);
-            $('.newAmountLabel').attr('class', 'amountLabel');
-
+            DrawSlot('resources', name + 'Slot', name, Resources[name].Amount, Craft());
         }
 
         //Loop through each generator, and draw it
