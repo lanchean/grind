@@ -54,16 +54,44 @@ h1{
   width: 100px;
   height: 100px;
 
+  display: inline-block;
   text-align: right;
 }
 
-.repice{
-  width: 250px;
-  height: auto;
+.generator{
+  position: relative;
+  width: 150px;
+  height: 120px;
 
-  background-color: lightslategray
+  font-family: minecraft;
+  background-color: lightslategray;
 }
 
-#placeholder{
-  visibility: hidden;
+.generatorText{
+  position: relative;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.generatorImage{
+  position: relative;
+  margin-left: 20px;
+  margin-top: 0px;
+
+  top: 0px;
+  width: 80px;
+  height: 80px;
+}
+
+#resources{
+  position: relative;
+  left: 180px;
+  top: -140px;
+
+  margin-top: 10px;
+  display: inline-block;
+}
+
+#generators{
+  display: table-row;
 }
