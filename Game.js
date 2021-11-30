@@ -201,7 +201,7 @@ function Init(){
         $('h1').text('Event binded!');
         //Loop through each resource, and draw a slot for it
         for(var name in Resources){
-            DrawSlot('resources', name + 'Slot', name, Resources[name].Amount, Craft());
+            DrawSlot('resources', name + 'Slot', name, Resources[name].Amount, Craft);
         }
 
         //Loop through each generator, and draw it
