@@ -76,11 +76,13 @@ var generatorDiv = "<div class = 'newGenerator'><h3 class = 'newGeneratorText'><
 function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
     $('#' + parentId).append(slotDiv);
 
-    $('.newSlotImage').attr('src', 'Assets/Images/items/' + resourceName.toLowerCase);
+    $('.newSlotImage').attr('src', 'Assets/Images/items/' + resourceName.toLowerCase());
     $('.newSlotImage').attr('class', 'slotImage');
 
     if(slotText){
         $('.newAmountLabel').text(slotText);
+    }else{
+        $('.newAmountLabel').css({'display': 'none'});
     }
 
     $('.newAmountLabel').attr('class', 'amountLabel');
