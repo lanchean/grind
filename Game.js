@@ -51,8 +51,7 @@ var Generators = {
                 Probability: 25,
                 MinVein: 1,
                 MaxVein: 2,
-                ClicksToBreak: 3,
-                EffectiveTool: 
+                ClicksToBreak: 3
             },
             'OakWood': {
                 Probability: 100,
