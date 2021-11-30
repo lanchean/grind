@@ -210,6 +210,8 @@ function Init(){
 
             FillResourceGenerator(genName);
         }
+        
+        console.log('Done drawing!');
     }
 
     Draw();
