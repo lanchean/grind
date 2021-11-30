@@ -176,7 +176,7 @@ function Init(){
         function craftItemBind(event){
             Craft(event.data.param1);
         }
-
+        $('h1').text('Event binded!');
         //Loop through each resource, and draw a slot for it
         for(var name in Resources){
             $('#resources').append(slotDiv);
@@ -213,6 +213,6 @@ function Init(){
         
         console.log('Done drawing!');
     }
-
+    $('h1').text('I mean at least it gets registered...');
     Draw();
 }
