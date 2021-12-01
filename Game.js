@@ -76,7 +76,7 @@ var generatorDiv = "<div class = 'newGenerator'><h3 class = 'newGeneratorText'><
 function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
     $('#' + parentId).append(slotDiv);
 
-    $('.newSlotImage').attr('src', 'Assets/Images/items/' + resourceName.toLowerCase());
+    $('.newSlotImage').attr('src', 'Assets/Images/items/' + resourceName.toLowerCase() + '.png');
     $('.newSlotImage').attr('class', 'slotImage');
 
     if(slotText){
@@ -203,7 +203,7 @@ function Init(){
         $('h1').text('Event binded!');
         //Loop through each resource, and draw a slot for it
         for(var name in Resources){
-            DrawSlot('resources', name + 'Slot', name, Resources[name].Amount, Craft);
+            DrawSlot('resources', name + 'Slot', name, Resources[name].Amoun.toString(), Craft);
         }
 
         //Loop through each generator, and draw it
