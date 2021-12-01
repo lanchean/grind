@@ -74,6 +74,10 @@ var slotDiv = "<div id = 'placeholder' class = 'newSlot'><img class = 'newSlotIm
 var generatorDiv = "<div class = 'newGenerator'><h3 class = 'newGeneratorText'></h3><img class = 'newGeneratorImage' alt = 'Resource Gen'></div>"
 
 function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
+    function bind(event){
+        onClickMethod(event.data.param1)
+    }
+
     $('#' + parentId).append(slotDiv);
 
     $('.newSlotImage').attr('src', 'Assets/Images/items/' + resourceName.toLowerCase() + '.png');
@@ -87,7 +91,7 @@ function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
 
     $('.newAmountLabel').attr('class', 'amountLabel');
     $('.newSlot').attr('id', slotId);
-    $('.newSlot').click({param1: resourceName}, onClickMethod);
+    $('.newSlot').click({param1: resourceName}, onClickMethod());
     $('.newSlot').attr('class', 'slot');
 }
 
