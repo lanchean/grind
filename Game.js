@@ -99,7 +99,7 @@ function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
 
 function Give(ResourceName, amount){
     Resources[ResourceName].Amount += amount
-    console.log(ResourceName + 'Label');
+    console.log(Resources[ResourceName].Amount);
     $('#' + ResourceName + 'Label').text(Resources[ResourceName].Amount);
 }
 
