@@ -74,8 +74,8 @@ var slotDiv = "<div id = 'placeholder' class = 'newSlot'><img class = 'newSlotIm
 var generatorDiv = "<div class = 'newGenerator'><h3 class = 'newGeneratorText'></h3><img class = 'newGeneratorImage' alt = 'Resource Gen'></div>"
 
 function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
-    function bind(event){
-        onClickMethod(event.data.param1)
+    function bind(event) {
+        onClickMethod(event.data.param1);
     }
 
     $('#' + parentId).append(slotDiv);
@@ -90,14 +90,17 @@ function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
     }
 
     $('.newAmountLabel').attr('class', 'amountLabel');
+    console.log(resourceName + 'Label');
+    $('.newAmountLabel').attr('id', resourceName + 'Label');
     $('.newSlot').attr('id', slotId);
-    $('.newSlot').click({param1: resourceName}, onClickMethod());
+    $('.newSlot').click({param1: resourceName}, bind);
     $('.newSlot').attr('class', 'slot');
 }
 
 function Give(ResourceName, amount){
     Resources[ResourceName].Amount += amount
-    $('#' + ResourceName + 'label').html(Resources[ResourceName].Amount);
+    console.log(ResourceName + 'Label');
+    $('#' + ResourceName + 'Label').text(Resources[ResourceName].Amount);
 }
 
 function Craft(ResourceName){
@@ -107,27 +110,30 @@ function Craft(ResourceName){
         var canAfford = true;
 
         //Check if they can afford the item
-        for(var i = 0; i < Resource.Recipe.length / 2; i++){
+        for (var i = 0; i < Resource.Recipe.length / 2; i++){
+            console.log(canAfford);
             var selectedResource = Resource.Recipe[i * 2];
             var selectedAmount = Resource.Recipe[i * 2 + 1];
             
-            if(selectedAmount === 0 && Resources[selectedResource].Amount < 1){
+            if (selectedAmount === 0 && Resources[selectedResource].Amount < 1) {
                 canAfford = false;
             }
 
-            if(Resources[selectedResource].Amount < selectedAmount){
+            if (Resources[selectedResource].Amount < selectedAmount) {
+                console.log('Not enough resources');
                 canAfford = false;
             }
         }
 
-        if(canAfford){
+        if (canAfford) {
+            console.log('Can afford.');
             //They can, give them the item
             for(var i = 0; i < Resource.Recipe.length / 2; i++){
                 Give(Resource.Recipe[i *  2], 0 - Resource.Recipe[i *  2 + 1]);
             }
 
             Give(ResourceName, Resource.CraftingAmount)
-
+            console.log('Given.');
             //Add a tool if we need to
             if(Resource.Type == Enum.ToolType.Tool){
                 Tools[Tools.length] = {
@@ -204,7 +210,7 @@ function Init(){
         function craftItemBind(event){
             Craft(event.data.param1);
         }
-        $('h1').text('Event binded!');
+
         //Loop through each resource, and draw a slot for it
         for(var name in Resources){
             DrawSlot('resources', name + 'Slot', name, Resources[name].Amount.toString(), Craft);
@@ -227,8 +233,7 @@ function Init(){
             FillResourceGenerator(genName);
         }
         
-        console.log('Done drawing!');
     }
-    $('h1').text('I mean at least it gets registered...');
+
     Draw();
 }
