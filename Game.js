@@ -73,6 +73,8 @@ var Generators = {
 var slotDiv = "<div id = 'placeholder' class = 'newSlot'><img class = 'newSlotImage' src = 'Assets/Images/icon.png' alt = 'Slot Image' width = '100' height = '100'><p id = '1' class = 'newAmountLabel'>99999</p></div>"
 var generatorDiv = "<div class = 'newGenerator'><h3 class = 'newGeneratorText'></h3><img class = 'newGeneratorImage' alt = 'Resource Gen'></div>"
 
+
+//Function to render slots (has multi-class capability)
 function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
     function bind(event) {
         onClickMethod(event.data.param1);
@@ -83,6 +85,7 @@ function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
     $('.newSlotImage').attr('src', 'Assets/Images/items/' + resourceName.toLowerCase() + '.png');
     $('.newSlotImage').attr('class', 'slotImage');
 
+    //Check if we're rendering text (we might just be rendering health bars)
     if(slotText){
         $('.newAmountLabel').text(slotText);
     }else{
@@ -94,12 +97,11 @@ function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
 
     $('.newSlot').attr('id', slotId);
     $('.newSlot').click({param1: resourceName}, bind);
-    $('.newSlot').attr('class', 'slot');
+    $('.newSlot').attr('class', 'slot inventory');
 }
 
 function Give(ResourceName, amount){
     Resources[ResourceName].Amount += amount
-    console.log(Resources[ResourceName].Amount);
     $('#' + ResourceName + 'Label').text(Resources[ResourceName].Amount);
 }
 
@@ -120,7 +122,6 @@ function Craft(ResourceName){
             }
 
             if (Resources[selectedResource].Amount < selectedAmount) {
-                console.log('Not enough resources');
                 canAfford = false;
             }
         }
@@ -133,7 +134,6 @@ function Craft(ResourceName){
             }
 
             Give(ResourceName, Resource.CraftingAmount)
-            console.log('Given.');
             //Add a tool if we need to
             if(Resource.Type == Enum.ToolType.Tool){
                 Tools[Tools.length] = {
@@ -142,20 +142,6 @@ function Craft(ResourceName){
                     MaxDurability: Resource.Durabilty
                 }
             }
-        }else{
-            //TODO: Draw recipe
-            //Append all the necessary slots
-            /*
-            for(var i = 1; i < Resource.Recipe.length / 2; i++){
-                var selectedResource = Resource.Recipe[i * 2];
-                var selectedAmount = Resource.Recipe[i * 2 + 1];
-                
-                var image = selectedResource.toLowerCase() = ".png";
-
-                //TODO: Add the slot
-                var newSlot = $('#placeholder').html();
-            }
-            */
         }
     }
 }
