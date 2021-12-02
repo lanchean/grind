@@ -89,9 +89,9 @@ function DrawSlot(parentId, slotId, resourceName, slotText, onClickMethod){
         $('.newAmountLabel').css({'display': 'none'});
     }
 
+    $('.newAmountLabel').attr('id', resourceName + 'Label')    
     $('.newAmountLabel').attr('class', 'amountLabel');
-    console.log(resourceName + 'Label');
-    $('.newAmountLabel').attr('id', resourceName + 'Label');
+
     $('.newSlot').attr('id', slotId);
     $('.newSlot').click({param1: resourceName}, bind);
     $('.newSlot').attr('class', 'slot');
